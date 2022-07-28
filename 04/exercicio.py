@@ -42,5 +42,6 @@ if somar_resultados > 100:
     print("=========================")
 else:
     print("=========================")
-    print(f"O resultado alcançado foi {somar_resultados} e ficou abaixo da expectativa")
+    print(
+        f"O resultado alcançado foi {somar_resultados} e ficou abaixo da expectativa")
     print("=========================")
