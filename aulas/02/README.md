@@ -1,4 +1,4 @@
-## Dia 02 - 26/07/2022[  🔙](../README.md)
+## Dia 02 - 26/07/2022[  🔙](../../README.md)
 
 - Python -> type date
 - variáveis = são espaços reservados na memória.

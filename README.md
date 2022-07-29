@@ -5,10 +5,10 @@
 - mentor e professor, Danilo Aparecido;
 
 ## Dia
-- [Dia 02 - 26/07/2022](./02)
-- [Dia 03 - 27/07/2022](./03)
-- [Dia 04 - 28/07/2022](./04)
-- [Dia 05 - 29/07/2022](./05)
+- [Dia 02 - 26/07/2022](aulas/02)
+- [Dia 03 - 27/07/2022](aulas/03)
+- [Dia 04 - 28/07/2022](aulas/04)
+- [Dia 05 - 29/07/2022](aulas/05)
 
 <i> Comunidade Torne-se Um Programador
 >O que posso aprender:
