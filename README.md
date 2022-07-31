@@ -10,6 +10,7 @@
 - [Dia 04 - 28/07/2022](aulas/04)
 - [Dia 05 - 29/07/2022](aulas/05)
 - [Dia 06 - 30/07/2022](aulas/06)
+- [Dia 07 - 31/07/2022](aulas/07)
 
 <i> Comunidade Torne-se Um Programador
 >O que posso aprender:
