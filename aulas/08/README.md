@@ -3,8 +3,18 @@
 - Dic - de dicionário ou objeto de variáveis, chaves e valores;
   - definido com chaves {};
   - para ter acesso ao valor, chame o objeto seguido por ponto e chave: aluno.nome
+  - adicionar ou atualizar chave, aluno.update({"disciplina": "Lógica de programação"})
+  - remover item, produto.pop("disciplina") ou del produto["disciplina"]
+    - remover última item, produto.popitem()
+    - apagar o dicionário, del produto
+    - esvazia o dicinário, produto.clear()
 
-Exemplo:
+### Exemplos
+
+<p>
+
+modelo de um dict
+
 ```
 alunos = {
   Nome: walter
@@ -12,4 +22,23 @@ alunos = {
   Média: 5.33
   Situação: Recuperação
 }
+```
+
+retorno de valores com o loop
+
+
+```
+for x in alunos:
+  print(alunos[x]) 
+
+# ou
+
+for x in alunos.values:
+  print(x) 
+```
+
+retorno de chave e valor com loop
+```
+for x, y in alunos.items():
+  print(x, y) 
 ```
