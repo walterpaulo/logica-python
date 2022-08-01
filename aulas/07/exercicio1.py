@@ -24,9 +24,6 @@ Situação: Aprovado
 import os
 
 lista_de_aluno = []
-media = 0
-notas = 0
-situcao = ""
 quantidade_de_notas = 3
 limpa_tela = os.system("clear")
 
@@ -35,23 +32,23 @@ print("============[ CADASTRO DE NOTA ]================\n")
 quantidade_aluno = int(input("Informe a quantidade de alunos:"))
 for i in range(0, quantidade_aluno):
     media= 0
-    notas= 0 
-    nota = 0
-    nome_aluno = input(f"\nInforme nome do aluno {i+1}:")
+    notas= []
+    situcao = "Aprovado"
     aluno = []
+    nome_aluno = input(f"\nInforme nome do aluno {i+1}:")
     
     aluno.append(nome_aluno)
     for y in range(1, 4):
+        nota = 0
         nota = float(input(f"Digite nota {y}: "))
-        notas += nota
-    media = (notas) / 3
+        notas.append(nota)
+    media = sum(notas) / 3
     aluno.append(media)
+    aluno.append(notas)
     
-    if media > 7:
-        situcao = "Aprovado"
-    elif media >= 5 and media <= 7:
+    if media >= 5 and media <= 7:
         situcao = "Recuperação"
-    else:
+    elif media < 5:
         situcao = "Reprovado"
     
     aluno.append(situcao)
@@ -59,9 +56,10 @@ for i in range(0, quantidade_aluno):
     
 limpa_tela
 print("============[ Lista de alunos ]================\n")
-for i in range(0, len(lista_de_aluno)):
-  print(f"Nome: {lista_de_aluno[i][0]}")
-  print("Média: {:0.2f}".format(lista_de_aluno[i][1]))
-  print(f"Situação: {lista_de_aluno[i][2]}")
+for aluno in lista_de_aluno:
+  print(f"Nome: {aluno[0]}")
+  print("Média: {:0.2f}".format(aluno[1]))
+  print(f"Notas: {aluno[2]}")
+  print(f"Situação: {aluno[3]}")
   print("===============================================\n")
     
