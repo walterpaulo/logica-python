@@ -1,4 +1,4 @@
-## Dia 08 - 01/08/2022[  🔙](../../README.md)
+## Dia 09 - 02/08/2022[  🔙](../../README.md)
 
 - Correção de exercício;
 - Funções é uma regra que relaciona cada elemento de um conjunto a um único elemento de outro;
