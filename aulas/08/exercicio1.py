@@ -30,36 +30,42 @@ quantidade_de_notas = 3
 
 os.system("clear")
 
-print("============[ CADASTRO DE NOTA ]================\n")
-quantidade_aluno = int(input("Informe a quantidade de alunos:"))
-for i in range(0, quantidade_aluno):
-    media = 0
-    notas = []
-    situacao = "Aprovado"
-    aluno = {}
 
-    aluno["nome"] = input(f"\nInforme nome do aluno {i+1}:")
+def exec():
+    print(f"{'_'*10}| CADASTRO DE NOTA |{'_'*9}\n")
+    quantidade_aluno = int(input("Informe a quantidade de alunos:"))
+    for i in range(0, quantidade_aluno):
+        media = 0
+        notas = []
+        situacao = "Aprovado"
+        aluno = {}
 
-    for y in range(0, quantidade_de_notas):
-        nota = 0
-        notas.append(float(input(f"Digite nota {y + 1}: ")))
+        aluno["nome"] = input(f"\nInforme nome do aluno {i+1}:")
 
-    media = float("{:0.2f}".format(sum(notas) / quantidade_de_notas))
-    aluno["media"] = media
-    aluno["notas"] = notas
+        for y in range(0, quantidade_de_notas):
+            nota = 0
+            notas.append(float(input(f"Digite nota {y + 1}: ")))
 
-    if media >= 5 and media <= 7:
-        situacao = "Recuperação"
-    elif media < 5:
-        situacao = "Reprovado"
+        media = float("{:0.2f}".format(sum(notas) / quantidade_de_notas))
+        aluno["media"] = media
+        aluno["notas"] = notas
 
-    aluno["situacao"] = situacao
-    lista_de_aluno.append(aluno)
-    del aluno
+        if media >= 5 and media <= 7:
+            situacao = "Recuperação"
+        elif media < 5:
+            situacao = "Reprovado"
 
-print("\n============[ Lista de alunos ]================\n")
-for aluno in lista_de_aluno:
-    for chave, valor in aluno.items():
-        print(f"{chave}: {valor}")
-    print("\n")
-print("===============================================\n")
+        aluno["situacao"] = situacao
+        lista_de_aluno.append(aluno)
+        del aluno
+
+    print(f"\n{'_'*10}| Lista de alunos |{'_'*10}\n")
+    for aluno in lista_de_aluno:
+        for chave, valor in aluno.items():
+            print(f"{' '*12}{chave}: {valor}")
+        print("\n")
+    print(f"{'_'*39}\n")
+
+
+if __name__ == "__main__":
+    exec()

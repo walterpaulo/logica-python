@@ -24,20 +24,27 @@ Digite o valor que o senhor(a) xxx que deseja colocar:
 
 """
 
-print("========== Sistema de combustível ===============")
-print("Digite a quantidade de litros padrão:")
-litroPosto = input()
-print("Digite a quantidade de litros para preencher a quantidade total:")
-atualPosto = input()
 
-print(f"A quantidade dque litros que ficou no posto foi: {atualPosto}")
+def exec():
+    print(f"{'_'*15}| Sistema de combustível |{'_'*14}\n")
+    print("Digite a quantidade de litros padrão:")
+    litroPosto = input()
+    print("Digite a quantidade de litros para preencher a quantidade total:")
+    atualPosto = input()
 
-print(f":::: Chegou um cliente, bora vender? :::::")
-print(f"Digite o nome do cliente:")
-nomeConsumidor = input()
-print(f"Digite o valor que o senhor(a) {nomeConsumidor} que deseja colocar:")
-abastecer = input()
+    print(f"A quantidade dque litros que ficou no posto foi: {atualPosto}\n")
 
-resto = float(atualPosto) - float(abastecer)
-print(
-    f"::: Ficou com {resto} litros de um total de {atualPosto} combustível no tanque do posto ::::")
+    print(f"{'_'*10}| Chegou um cliente, bora vender? |{'_'*10}\n")
+    print(f"Digite o nome do cliente:")
+    nomeConsumidor = input()
+    print(
+        f"Digite o valor que o senhor(a) {nomeConsumidor} que deseja colocar:")
+    abastecer = input()
+
+    resto = float(atualPosto) - float(abastecer)
+    print(
+        f"::: Ficou com {resto} litros de um total de {atualPosto} combustível no tanque do posto ::::")
+
+
+if __name__ == "__main__":
+    exec()

@@ -14,14 +14,20 @@ Digite um número para calcular a tabuada?
 
 """
 import os
+import exercicio1 as util
 
-print("====== Programa Calculo de Tabuada - Claudio ======\n")
-numero = int(input("Digite um número para calcular a tabuada?\n"))
-iterador = int(input(f"Quantas vezes deseja multiplicar o número {numero}?\n"))
+def exec():
+  print(f"{'_'*10}| Tabuada de Multiplicação |{'_'*10}\n")
+  numero = int(input("Digite o número da tabuada:\n"))
+  iterador = int(input(f"Quantas vezes deseja multiplicar a tabuada de {numero}?\n"))
 
-os.system('clear')
-print(f"==========[ Tabuada de {numero} ]==========")
-i = 1
-while i <= iterador:
-  print(f" {numero} x {i} = {numero * i}") 
-  i += 1
+  os.system('clear')
+  print(f"{'_'*10}| Tabuada de {numero} |{'_'*10}\n")
+  i = 1
+  while i <= iterador:
+    print(f"{' '*12}{util.adiciona_zero(numero)} x {util.adiciona_zero(i)} = {numero * i}") 
+    i += 1
+  print('_'*37)
+
+if __name__ == "__main__":
+    exec()

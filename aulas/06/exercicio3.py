@@ -6,29 +6,33 @@ o usuário digitando:
 2 = execute a tabuada com iterador
 3 = saia do programa
 """
+import time
+
+import exercicio1
+import exercicio2
 
 
-while True:
-    print("\nEscolhe uma opção:\n")
-    print("1 = Execute a tabuada")
-    print("2 = execute a tabuada com iterador")
-    print("3 = saia do programa")
-    valor = int(input())
+def espere_em_segundos(segundo):
+    time.sleep(segundo)
 
-    if valor == 1:
-      numero = int(input("Digite um número para calcular a tabuada?\n"))
-      i = 1
-      while i <= 10:
-        print(f" {numero} x {i} = {numero * i}") 
-        i += 1
-    elif valor == 2:
-      numero = int(input("Digite um número para calcular a tabuada?\n"))
-      iterador = int(input(f"Quantas vezes deseja multiplicar o número {numero}?\n"))
-      i = 1
-      while i <= iterador:
-        print(f" {numero} x {i} = {numero * i}") 
-        i += 1
-    elif valor == 3:
-        break
-    
-    
+
+def exec():
+    while True:
+        print(f"{'_'*10}| Escolhe uma opção |{'_'*10}\n")
+        print(f"{' '*11}[1] Execute a tabuada")
+        print(f"{' '*11}[2] Execute a tabuada com iterador")
+        print(f"{' '*11}[3] Sair")
+        valor = int(input())
+
+        if valor == 1:
+            exercicio1.exec()
+            espere_em_segundos(3)
+        elif valor == 2:
+            exercicio2.exec()
+            espere_em_segundos(3)
+        elif valor == 3:
+            break
+
+
+if __name__ == "__main__":
+    exec()

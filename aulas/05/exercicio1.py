@@ -14,21 +14,29 @@ utilize a sua criativaidade e agrade o seu professor, com a melhor experiencia;
 
 """
 
-print("========== Escola de Goias ==========")
-nome_aluno = input("Digite o nome do aluno\n")
 
-nota_um = float(input("Digite a nota 1:\n"))
-nota_dois = float(input("Digite a nota 2:\n"))
-nota_tres = float(input("Digite a nota 3:\n"))
+def exec():
+    print(f"{'_'*10}| Escola de Goias |{'_'*10}\n")
+    nome_aluno = input("Digite o nome do aluno:\n")
 
-resultado = (nota_um + nota_dois + nota_tres)/3
+    nota_um = float(input("Digite a nota 1:\n"))
+    nota_dois = float(input("Digite a nota 2:\n"))
+    nota_tres = float(input("Digite a nota 3:\n"))
 
-if resultado > 7:
-    situacao = "APROVADO"
-elif resultado >= 5 and resultado <= 7:
-    situacao = "RECUPERAÇÃO"
-else:
-    situacao = "REPROVAÇÃO"
-print("\nRESULTADO\n")
-# print(f"Aluno {nome_aluno}, \Situação: {situacao}, \nMédia das notas: {resultado}")
-print("Aluno {} \nSituação: {} \nMédia das notas: {:0.2f}".format(nome_aluno, situacao, resultado))
+    resultado = (nota_um + nota_dois + nota_tres)/3
+
+    if resultado > 7:
+        situacao = "APROVADO"
+    elif resultado >= 5 and resultado <= 7:
+        situacao = "RECUPERAÇÃO"
+    else:
+        situacao = "REPROVAÇÃO"
+    print(f"{'_'*17}| NOTA DE ALUNO |{'_'*16}\n")
+    # print(f"Aluno {nome_aluno}, \Situação: {situacao}, \nMédia das notas: {resultado}")
+    print(" Aluno: {} \n Resultado: {} \n Média: {:0.2f}".format(
+        nome_aluno, situacao, resultado))
+    print(f"{'_'*50}\n")
+
+
+if __name__ == "__main__":
+    exec()
