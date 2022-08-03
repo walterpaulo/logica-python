@@ -12,3 +12,4 @@
   - __next__,, retorna o próximo item, error se não tiver o próximo;
 - geradores de lista, [exemplos](iteraveis-iteradores-geradores.py) e [exemplos](yield-generator.py)
 - Recursividade, loop infinito, repetição de um objeto, [exemplo](recursivo.py)
+- tratamento de erros, uso de try e except, [exemplo](try.py)
