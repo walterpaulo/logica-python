@@ -17,7 +17,7 @@ from utils import validar_number, importa_funcao, tempo_espera_segundo
 
 def menu():
     for i in range(1, 9):
-        print(f"{i} - Chama o exercicio do dia {i+1} ")
+        print(f"{i} - Chama o(s) exercício(s) do dia {i+1} ")
     print("10 - Sair do programa")
 
 
