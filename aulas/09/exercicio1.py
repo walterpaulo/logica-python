@@ -8,6 +8,7 @@ e acesse o exercício através de uma organização em menu
 """
 
 import os
+from utils import validar_number, limpar_tela
 
 def limpar_tela():
   os.system("clear")
@@ -80,26 +81,31 @@ def exercicio3():
       print("=========================")
 
 
+def exec():
+  while True:
+    print("=== Bem vindo ao programa - RESUMO ===\n")
+    print("Digite um opção:\n")
+    for i in range(0, 7):
+      print(f"{i+1} - {mostra_exercicio(i+1)}")
+    print("10 - Sair do programa")
 
-while True:
-  print("=== Bem vindo ao programa - RESUMO ===\n")
-  print("Digite um opção:\n")
-  for i in range(0, 8):
-    print(f"{i+1} - {mostra_exercicio(i+1)}")
-  print("10 - Sair do programa")
+    # opcao = int(input())
+    opcao = validar_number(input())
 
-  opcao = int(input())
+    if opcao == 10:
+      limpar_tela()
+      break
+    elif opcao == 1:
+      limpar_tela()
+      exercicio1()
+    elif opcao == 2:
+      limpar_tela()
+      exercicio2()
+    elif opcao == 3:
+      limpar_tela()
+      exercicio3()
+    else:
+     print("Em construção")
 
-  if opcao == 10:
-    break
-  elif opcao == 1:
-    limpar_tela()
-    exercicio1()
-  elif opcao == 2:
-    limpar_tela()
-    exercicio2()
-  elif opcao == 3:
-    limpar_tela()
-    exercicio3()
-  else:
-   print("Em construção")
+if __name__ == "__main__":
+    exec()
