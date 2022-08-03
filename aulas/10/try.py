@@ -49,3 +49,18 @@ try:
     f.close()
 except:
   print("erro")
+
+
+# retorna erro
+x = -1
+if x < 0:
+  raise Exception("Sorry, no numbers below")
+
+
+# retorna erro personalizado
+x = "oi"
+if not type(x) in int:
+  raise Exception("number")
+
+
+
