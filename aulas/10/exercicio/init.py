@@ -83,6 +83,7 @@ def novo_pedido(cliente):
             pedido.update({"nome_cliente": cliente['nome']})
             pedido.update({"items": items})
             pedidos.append(pedido)
+            limpar_tela()
             print("Pedido salvo")
             break
         elif opcao.isdigit():
