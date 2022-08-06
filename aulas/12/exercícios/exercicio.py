@@ -15,58 +15,26 @@ Animal
   - buscar()
   - mostrar()
 """
-from os.path import exists
-import json
 
 
-class Animal():
+from models.animal import Animal
 
-    def __init__(self):
-        self.numero = ""
-        self.nome = ""
-        self.descricao = ""
+# animal1 = Animal()
+# animal1.nome = "Zebra"
+# animal1.descricao = "Animal pintado"
+# animal1.gravar()
 
-    def salvar_dados(self):
-        DB_ZOOLOGIO = "db_zoologio.json"
+# animais = Animal.buscar()
+# for animal in animais:
+#     print(f"{'=' * 30}")
+#     print(f"codigo: {animal.codigo}")
+#     print(f"Nome: {animal.nome}")
+#     print(f"Descrição: {animal.descricao}")
 
-        with open(DB_ZOOLOGIO, "w", encoding="utf-8") as dados:
-            salvando = json.dump(self)
-        return salvando
-
-    def gravar(self):
-        DB_ZOOLOGIO = "db_zoologio.json"
-        file_exists = exists(DB_ZOOLOGIO)
-        if file_exists:
-            with open(DB_ZOOLOGIO, "r", encoding="utf-8") as dados:
-                self.salvar_dados()
-                return json.load(dados)
-        else:
-            with open(DB_ZOOLOGIO, "w", encoding="utf-8") as dados:
-                temporario = []
-                json.dump(temporario, dados)
-                return temporario
-
-    def buscar(self):
-        DB_ZOOLOGIO = "db_zoologio.json"
-        for objecto in DB_ZOOLOGIO:
-            if objecto['nome'] == self.nome:
-                return objecto
-        return
-
-    def mostrar(self):
-        DB_ZOOLOGIO = "db_zoologio.json"
-        try:
-            with open(DB_ZOOLOGIO) as arquivo_zoo:
-                animais = arquivo_zoo.read()
-            zoo_json = json.loads(animais)
-            return zoo_json
-        except json.decoder.JSONDecodeError:
-            print("Lista vazia")
-
-
-leao = Animal()
-leao.numero = "1"
-leao.nome = "leão"
-leao.descricao = "reia da selva"
-
-leao.gravar()
+# animal = Animal.buscar_por_codigo("7d273227-120e-4b00-b6a4-3d2792c9e657") # Não tem
+animal = Animal.buscar_por_codigo(
+    "22318d78-534b-4b02-bce1-453361668134")  # Tem
+if animal != None:
+    print(f"codigo: {animal.codigo}")
+    print(f"Nome: {animal.nome}")
+    print(f"Descrição: {animal.descricao}")
