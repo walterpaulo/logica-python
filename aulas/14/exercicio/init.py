@@ -22,3 +22,10 @@ O que terá na classe produto:
 - descrição
 - preço
 '''
+
+class Init():
+  def exec():
+    print("Sistema iniciado.")
+
+if __name__ == "__main__":
+  Init.exec()
