@@ -16,25 +16,30 @@ Animal
   - mostrar()
 """
 
+# from models.animal import Anima
+from controllers.animais import Animais
+from utils.utils import obtem_opcao_menu, limpar_tela
 
-from models.animal import Animal
 
-# animal1 = Animal()
-# animal1.nome = "Zebra"
-# animal1.descricao = "Animal pintado"
-# animal1.gravar()
+class Exercicio():
+    def exec():
+        limpar_tela()
+        while True:
+            print(f"{'-'*10}| Programa de Zoom |{'-'*10}")
+            print("Escolhe uma opção:")
+            print("1 - Cadastrar animal")
+            print("2 - Listar animal")
+            print("0 - sair")
+            opcao_selecionado = obtem_opcao_menu(1, 2)
 
-# animais = Animal.buscar()
-# for animal in animais:
-#     print(f"{'=' * 30}")
-#     print(f"codigo: {animal.codigo}")
-#     print(f"Nome: {animal.nome}")
-#     print(f"Descrição: {animal.descricao}")
+            if opcao_selecionado == 0:
+                break
+            elif opcao_selecionado == 1:
+                limpar_tela()
+                Animais.cadastro()
+            elif opcao_selecionado == 2:
+                limpar_tela()
+                Animais.listar()
 
-# animal = Animal.buscar_por_codigo("7d273227-120e-4b00-b6a4-3d2792c9e657") # Não tem
-animal = Animal.buscar_por_codigo(
-    "22318d78-534b-4b02-bce1-453361668134")  # Tem
-if animal != None:
-    print(f"codigo: {animal.codigo}")
-    print(f"Nome: {animal.nome}")
-    print(f"Descrição: {animal.descricao}")
+if __name__ == "__main__":
+    Exercicio.exec()
