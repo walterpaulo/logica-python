@@ -75,7 +75,7 @@ class Produto():
                     f"Digite a quantidade de [{produto}]")
 
             itens.append({"produto": produto, "preco": valor_produto,
-                         "qtd": quantidade, "valor_total_produto": valor_produto * quantidade})
+                         "qtd": quantidade, "valor_total_produto": float(valor_produto) * quantidade})
 
             while True:
                 Utils.limpar_tela()
