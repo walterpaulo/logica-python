@@ -38,7 +38,7 @@ class Utils():
             return False
 
     def limpar_tela():
-        os.system("clear")
+        os.system("cls||clear")
 
     def titulo(texto):
         print(f"{cor.CTEXTINFO}{'-'*10}{cor.CEND}{cor.BINFO} {texto} {cor.CEND}{cor.CTEXTINFO}{'-'*10}{cor.CEND}")

@@ -1,5 +1,6 @@
 from ..utils.utils import Utils
 from ..models.produto_model import ProdutoModel
+from ..services.produtos_service import ProdutoService
 from ..styles.cores import Cores as cor
 
 
@@ -15,7 +16,7 @@ class Produto():
             produto = ProdutoModel()
             produto.nome = nome
             produto.preco = preco
-            produto.gravar()
+            ProdutoService.gravar(produto)
             Utils.limpar_tela()
             Utils.messagem_success("Inserido com sucesso")
 
@@ -41,13 +42,17 @@ class Produto():
 
     @staticmethod
     def listar():
-        produtos = ProdutoModel.buscar()
+        produtos = ProdutoService.buscar()
+        Utils.limpar_tela()
         Utils.titulo("Relatório de Produtos")
         for produto in produtos:
             print(f"\ncodigo: {produto.codigo}")
             print(f"Nome: {produto.nome}")
             print(f"Preço: {produto.preco}")
             print(f"{cor.CTEXTINFO}{'-' * 30}{cor.CEND}")
+
+        input("Digite enter para sair do relatório \n")
+        Utils.limpar_tela()
 
     @staticmethod
     def adicionar_carrinho(produto="", quantidade="", itens=[]):
@@ -103,12 +108,11 @@ class Produto():
                 nome = input("Digite o nome:")
                 if nome.strip() == "":
                     raise TypeError("Digite o nome correto.")
-            
+
             if not Utils.number_float(preco) or preco.strip() == "":
                 preco = input("Digite o preço:")
                 if not Utils.number_float(preco):
                     raise TypeError("Digite o preço correto.")
-
 
             return nome, preco
         except Exception as e:
@@ -125,9 +129,3 @@ class Produto():
                 return valor_codigo
             i += 1
         return valor_codigo
-
- 
-
-
-# if __name__ == "__main__":
-#     Produto.exec()
