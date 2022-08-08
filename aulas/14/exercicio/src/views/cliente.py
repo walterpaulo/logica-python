@@ -1,5 +1,6 @@
 from ..utils.utils import Utils
 from ..models.cliente_model import ClienteModel
+from ..services.clientes_service import ClienteService
 from ..styles.cores import Cores as cor
 
 
@@ -15,12 +16,11 @@ class Cliente():
             cliente = ClienteModel()
             cliente.nome = nome
             cliente.email = email
-            cliente.gravar()
+            ClienteService.gravar(cliente)
             Utils.limpar_tela()
             if cadastro_pedido == True:
                 return cliente
             Utils.messagem_success("Inserido com sucesso")
-
 
             while True:
                 print("Deseja cadastar novo cliente?")
@@ -44,13 +44,16 @@ class Cliente():
 
     @staticmethod
     def listar():
-        clientes = ClienteModel.buscar()
+        clientes = ClienteService.buscar()
+        Utils.limpar_tela()
         Utils.titulo("Relatório de Clientes")
         for cliente in clientes:
             print(f"\ncodigo: {cliente.codigo}")
             print(f"Nome: {cliente.nome}")
             print(f"Email: {cliente.email}")
             print(f"{cor.CTEXTINFO}{'-' * 30}{cor.CEND}")
+        input("Digite enter para sair do relatório \n")
+        Utils.limpar_tela()
 
     def validar_nomes(nome='', email=''):
         try:
@@ -67,7 +70,3 @@ class Cliente():
         except Exception as e:
             Utils.messagem_error(e=e)
             return Cliente.validar_nomes(nome, email)
-
-
-# if __name__ == "__main__":
-#     Cliente.exec()
