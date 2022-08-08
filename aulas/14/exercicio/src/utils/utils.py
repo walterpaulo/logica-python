@@ -31,6 +31,12 @@ class Utils():
         else:
             return False
 
+    def number_float(numero):
+        if numero.replace('.','',1).isdigit():
+            return True
+        else:
+            return False
+
     def limpar_tela():
         os.system("clear")
 

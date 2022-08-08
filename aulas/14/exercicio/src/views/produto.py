@@ -103,7 +103,12 @@ class Produto():
                 nome = input("Digite o nome:")
                 if nome.strip() == "":
                     raise TypeError("Digite o nome correto.")
-            preco = Utils.obter_numero("Digite o valor")
+            
+            if not Utils.number_float(preco) or preco.strip() == "":
+                preco = input("Digite o preço:")
+                if not Utils.number_float(preco):
+                    raise TypeError("Digite o preço correto.")
+
 
             return nome, preco
         except Exception as e:
@@ -120,6 +125,8 @@ class Produto():
                 return valor_codigo
             i += 1
         return valor_codigo
+
+ 
 
 
 # if __name__ == "__main__":
