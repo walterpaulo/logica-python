@@ -22,10 +22,12 @@ O que terá na classe produto:
 - descrição
 - preço
 '''
+from src.controllers.home_controller import HomeController
 
 class Init():
   def exec():
     print("Sistema iniciado.")
+    HomeController.exec()
 
 if __name__ == "__main__":
   Init.exec()
