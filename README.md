@@ -19,6 +19,7 @@
 - [Dia 13 - 06/08/2022](aulas/13)
 - [Dia 14 - 07/08/2022](aulas/14)
 - [Dia 15 - 08/08/2022](aulas/15)
+- [Dia 16 - 09/08/2022](aulas/16)
 
 <i> Comunidade Torne-se Um Programador
 >O que posso aprender:
