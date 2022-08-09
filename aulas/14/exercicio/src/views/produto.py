@@ -57,7 +57,7 @@ class Produto():
     @staticmethod
     def adicionar_carrinho(produto="", quantidade="", itens=[]):
         try:
-            produtos = ProdutoModel.buscar()
+            produtos = ProdutoService.buscar()
             Utils.titulo("Adicionar item")
             itens = itens
             i = 1
@@ -69,7 +69,7 @@ class Produto():
             opcao_selecionada = Utils.obtem_opcao_menu(1, len(produtos))
             codigo_produto = Produto.__retornar_id(opcao_selecionada)
 
-            objeto_produto = ProdutoModel.buscar_por_codigo(codigo_produto)
+            objeto_produto = ProdutoService.buscar_por_codigo(codigo_produto)
 
             produto = objeto_produto.nome
             valor_produto = objeto_produto.preco
@@ -121,7 +121,7 @@ class Produto():
 
     def __retornar_id(item):
         valor_codigo = ""
-        produtos = ProdutoModel.buscar()
+        produtos = ProdutoService.buscar()
         i = 1
         for produto in produtos:
             if i == item:
