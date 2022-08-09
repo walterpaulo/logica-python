@@ -1,6 +1,7 @@
 import os
 import re
 from ..styles.cores import Cores as cor
+import json
 
 
 class Utils():
@@ -32,7 +33,7 @@ class Utils():
             return False
 
     def number_float(numero):
-        if numero.replace('.','',1).isdigit():
+        if numero.replace('.', '', 1).isdigit():
             return True
         else:
             return False
@@ -65,3 +66,18 @@ class Utils():
         except TypeError as e:
             Utils.messagem_error(e=e)
             return Utils.obter_numero()
+
+    def para_dict(obj):
+        # Se for um objeto, transforma num dict
+        if hasattr(obj, '__dict__'):
+            obj = obj.__dict__
+
+        # Se for um dict, lê chaves e valores; converte valores
+        if isinstance(obj, dict):
+            return {k: Utils.para_dict(v) for k, v in obj.items()}
+        # Se for uma lista ou tupla, lê elementos; também converte
+        elif isinstance(obj, list) or isinstance(obj, tuple):
+            return [Utils.para_dict(e) for e in obj]
+        # Se for qualquer outra coisa, usa sem conversão
+        else:
+            return obj
