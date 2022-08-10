@@ -54,7 +54,6 @@ class ProdutoService():
             objeto_cliente.nome = cliente["nome"]
             objeto_cliente.preco = cliente["preco"]
             produtos.append(objeto_cliente)
-            # codigo='', nome="", preco=""
         return produtos
 
     @staticmethod

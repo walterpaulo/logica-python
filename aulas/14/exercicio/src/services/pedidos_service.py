@@ -4,6 +4,7 @@ from pydoc import cli
 import uuid
 from ..utils.utils import Utils
 from ..models.pedido_model import PedidoModel
+from ..models.cliente_model import ClienteModel
 
 
 class PedidoService():
@@ -20,12 +21,6 @@ class PedidoService():
         pedidos.append(self)
         f = open(PedidoService.__caminho_arquivo(), "w")
         try:
-            # novo_lista_pedidos = []
-            # pedidos_json = json.dumps([obj.__dict__ for obj in pedidos])
-            # for pedido in pedidos:
-            #     if
-            #     novo_lista_pedidos.append(pedido)
-            # pedidos_json = json.dumps(novo_lista_pedidos)
             pedidos_json = json.dumps(Utils.para_dict(pedidos))
             f.write(pedidos_json)
         except Exception as e:
@@ -44,7 +39,9 @@ class PedidoService():
         PedidoService.__criar_db_se_nao_existe()
         f = open(PedidoService.__caminho_arquivo(), "r")
         try:
-            return PedidoService.__converter_list_dict_objeto_produto(json.loads(f.read()))
+            # return PedidoService.__converter_list_dict_objeto_produto(json.loads(f.read()))
+            lista_pedidos = f.read()
+            return PedidoService.__converter_list_dict_objeto_produto(json.loads(lista_pedidos))
         except:
             return []
         finally:
@@ -59,7 +56,9 @@ class PedidoService():
             cliente = pedido['cliente']
             objeto_pedido.adicionar_cliente(
                 codigo=cliente['codigo'], nome=cliente['nome'], email=cliente['email'])
-            objeto_pedido.adicionar_produto(pedido["itens"])
+            lista_objeto_produtos = objeto_pedido.converter_dict_obj_produto(
+                pedido["itens"])
+            objeto_pedido.adicionar_produto(lista_objeto_produtos)
             pedidos.append(objeto_pedido)
         return pedidos
 

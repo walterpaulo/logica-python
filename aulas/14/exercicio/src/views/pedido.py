@@ -11,22 +11,16 @@ class Pedido():
         if exibe_cabecalho:
             Utils.titulo("Novo Pedido")
         try:
-            # nome_cliente = cliente.nome
-            # id_cliente = cliente.codigo
-            items_produtos = items
+
             valor_total = Pedido.__calcular_total_venda(items)
 
             novo_pedido = PedidoModel()
             novo_pedido.adicionar_cliente(
                 cliente.codigo, cliente.nome, cliente.email)
             novo_pedido.adicionar_produto(items)
-            # novo_pedido.id_cliente = id_cliente
-            # novo_pedido.nome_cliente = nome_cliente
 
             novo_pedido.valor_total = valor_total
-            # novo_pedido.itens = items_produtos
             PedidoService.gravar(novo_pedido)
-            # novo_pedido.gravar()
 
             Utils.limpar_tela()
             Utils.messagem_success("Inserido com sucesso")
@@ -37,6 +31,7 @@ class Pedido():
     @staticmethod
     def listar():
         pedidos = PedidoService.buscar()
+        Utils.limpar_tela()
         Utils.titulo("Relatório de Pedidos")
         for pedido in pedidos:
             print(f"\ncodigo: {pedido.codigo[ : 8]}")
@@ -48,19 +43,22 @@ class Pedido():
             itens_total = []
             i = 1
             for item in pedido.itens:
-                itens_total.append(item['valor_total_produto'])
+                itens_total.append(float(item.preco) * item.qtd)
                 print(
-                    f"{i} {item['produto']} {item['qtd']} unid  x {item['preco']} {item['valor_total_produto']}")
+                    f"{i} {item.produto} {item.qtd} unid  x {item.preco} {item.qtd * item.preco}")
                 i += 1
             print(f"Valor Total R$ {sum(itens_total)}")
             print(f"{cor.CTEXTINFO}{'-' * 30}{cor.CEND}")
+
+        input("Digite enter para sair do relatório \n")
+        Utils.limpar_tela()
 
     def __calcular_total_venda(items=[]):
         valor_total = 0
 
         if len(items) > 0:
             for item in items:
-                valor_total += item["valor_total_produto"]
+                valor_total += item.qtd * item.preco
 
             return valor_total
 

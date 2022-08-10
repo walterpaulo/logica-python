@@ -1,10 +1,10 @@
+from src.services.itens_service import ItemService
 from ..utils.utils import Utils
 from ..views.produto import Produto
 
 
 class ProdutosController():
     def exec():
-        print("ok")
         Utils.limpar_tela()
         while True:
             Utils.titulo("Cadastro de Produto")

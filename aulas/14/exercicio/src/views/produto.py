@@ -1,6 +1,7 @@
 from ..utils.utils import Utils
 from ..models.produto_model import ProdutoModel
 from ..services.produtos_service import ProdutoService
+from ..services.itens_service import ItemService
 from ..styles.cores import Cores as cor
 
 
@@ -79,8 +80,8 @@ class Produto():
                 quantidade = Utils.obter_numero(
                     f"Digite a quantidade de [{produto}]")
 
-            itens.append({"produto": produto, "preco": valor_produto,
-                         "qtd": quantidade, "valor_total_produto": float(valor_produto) * quantidade})
+            item = ItemService(produto=produto, preco=float(valor_produto), qtd=quantidade)
+            itens.append(item)
 
             while True:
                 Utils.limpar_tela()
