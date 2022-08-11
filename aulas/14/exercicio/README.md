@@ -27,7 +27,7 @@ O que terá na classe produto:
 
 ## Estrutura do Código
 
-```
+```python
 .
 ├── init.py
 ├── README.md
@@ -35,6 +35,7 @@ O que terá na classe produto:
     ├── controllers
     │   ├── clientes_controller.py
     │   ├── home_controller.py
+    │   ├── itens_controller.py
     │   ├── pedidos_controller.py
     │   ├── produtos_controller.py
     │   └── relatorios_controller.py
@@ -44,22 +45,22 @@ O que terá na classe produto:
     │   └── produtos.json
     ├── models
     │   ├── cliente_model.py
+    │   ├── item_model.py
     │   ├── pedido_model.py
     │   └── produto_model.py
-    │   
     ├── services
-    │   └── produtos_services.py
-    │   
+    │   ├── clientes_service.py
+    │   ├── itens_service.py
+    │   ├── pedidos_service.py
+    │   └── produtos_service.py
     ├── styles
-    │   └──cores.py
-    │   
+    │   └── cores.py
     ├── utils
     │   └── utils.py
     └── views
         ├── cliente.py
         ├── pedido.py
         └── produto.py
-
 ```
 
 ## Iniciar
