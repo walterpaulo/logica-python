@@ -1,6 +1,6 @@
 ## Dia 19 - 12/08/2022[  🔙](../../README.md)
 
-- Repatido o tamplete - Partitions
+- Repartido o template - Partitions
     - cria a pasta shared no diretório templates. Coloca as partes do front que são partes comuns, como header.html, menu.html, footer.html ...
     - depois aponta esse arquivos compartihlhas no main, adicona este código com o caminho dos arquivos:
         - exemplo, para o header:
