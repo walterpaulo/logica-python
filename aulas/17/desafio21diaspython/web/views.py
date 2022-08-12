@@ -5,7 +5,7 @@ from requests import request
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'home/index.html')
 
 def tamplate(resques):
     return render(request, 'index.html')
